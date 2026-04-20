@@ -1,0 +1,24 @@
+:root {
+  --bg: #020617; --card: #0f172a; --accent: #0ea5e9; --border: rgba(255,255,255,0.1);
+}
+body { background: var(--bg); color: white; font-family: 'Inter', sans-serif; margin: 0; }
+.app-shell { display: flex; height: 100vh; }
+.sidebar { width: 260px; background: #020617; border-right: 1px solid var(--border); padding: 40px 20px; display: flex; flex-direction: column; }
+.logo { font-weight: 900; font-size: 24px; color: var(--accent); margin-bottom: 40px; }
+.nav-item { padding: 12px; border-radius: 12px; cursor: pointer; display: flex; gap: 12px; color: #64748b; margin-bottom: 5px; transition: 0.3s; }
+.nav-item:hover, .nav-item.active { background: rgba(14,165,233,0.1); color: var(--accent); }
+.main-content { flex: 1; padding: 40px; overflow-y: auto; background: radial-gradient(at top left, #1e293b, #020617); }
+header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+.add-btn { background: var(--accent); color: white; border: none; padding: 10px 20px; border-radius: 12px; font-weight: bold; cursor: pointer; display: flex; gap: 8px; }
+.bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 24px; padding: 24px; backdrop-filter: blur(10px); }
+.span-2 { grid-column: span 2; } .span-3 { grid-column: span 3; }
+.report-row { display: flex; justify-content: space-between; padding: 15px; border-bottom: 1px solid var(--border); }
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; z-index: 100; }
+.modal { background: #1e293b; width: 450px; padding: 30px; border-radius: 30px; border: 1px solid var(--border); }
+.dropzone { border: 2px dashed #334155; padding: 30px; border-radius: 20px; text-align: center; cursor: pointer; margin-bottom: 20px; }
+.modal-form input { width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 10px; background: #0f172a; border: 1px solid var(--border); color: white; box-sizing: border-box; }
+.row { display: flex; gap: 10px; }
+.confirm-btn { width: 100%; background: var(--accent); border: none; padding: 14px; border-radius: 14px; color: white; font-weight: bold; margin-top: 10px; cursor: pointer; }
+.login-page { height: 100vh; display: flex; align-items: center; justify-content: center; }
+.login-card { width: 320px; text-align: center; }
