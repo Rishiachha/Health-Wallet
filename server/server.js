@@ -14,7 +14,6 @@ app.use('/uploads', express.static('uploads'));
 const db = new sqlite3.Database('./health.db');
 const SECRET = "urban_secret_2025";
 
-// Initialize Tables
 db.serialize(() => {
     db.run(`CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT UNIQUE, password TEXT, role TEXT)`);
     db.run(`CREATE TABLE IF NOT EXISTS reports (id INTEGER PRIMARY KEY, owner_id INTEGER, title TEXT, date TEXT, bp TEXT, glucose TEXT, hr TEXT, file TEXT)`);
@@ -26,7 +25,6 @@ const upload = multer({ storage: multer.diskStorage({
     filename: (req, file, cb) => cb(null, Date.now() + '-' + file.originalname)
 })});
 
-// Middleware
 const auth = (req, res, next) => {
     const token = req.headers.authorization?.split(' ')[1];
     if (!token) return res.sendStatus(401);
@@ -37,7 +35,6 @@ const auth = (req, res, next) => {
     });
 };
 
-// Routes
 app.post('/register', (req, res) => {
     const { username, password, role } = req.body;
     db.run(`INSERT INTO users (username, password, role) VALUES (?, ?, ?)`, [username, password, role], (err) => {
